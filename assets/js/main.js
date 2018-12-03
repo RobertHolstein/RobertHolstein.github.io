@@ -96,22 +96,37 @@
 	// Main Sections: Two.
 
 		// Lightbox gallery.
-			$window.on('load', function() {
+			// $window.on('load', function() {
 
-				$('#two').poptrox({
-					caption: function($a) { return $a.next('h3').text(); },
-					overlayColor: '#2c2c2c',
-					overlayOpacity: 0.85,
-					popupCloserText: '',
-					popupLoaderText: '',
-					selector: '.work-item a.image',
-					usePopupCaption: true,
-					usePopupDefaultStyling: false,
-					usePopupEasyClose: false,
-					usePopupNav: true,
-					windowMargin: (breakpoints.active('<=small') ? 0 : 50)
-				});
+			// 	$('#two').poptrox({
+			// 		caption: function($a) { return $a.next('h3').text(); },
+			// 		overlayColor: '#2c2c2c',
+			// 		overlayOpacity: 0.85,
+			// 		popupCloserText: '',
+			// 		popupLoaderText: '',
+			// 		selector: '.work-item a.image',
+			// 		usePopupCaption: true,
+			// 		usePopupDefaultStyling: false,
+			// 		usePopupEasyClose: false,
+			// 		usePopupNav: true,
+			// 		windowMargin: (breakpoints.active('<=small') ? 0 : 50)
+			// 	});
 
-			});
+			// });
+		
+		// API Quote Generator
+		var QuoteGenerator = () => {
+		$.get( "https://talaikis.com/api/quotes/random/", function( data ) {
+			$('header .inner').first().empty();
+			$('header .inner').first().append(`<h1><strong>"${data.quote}"</h1></strong>`);
+			$('header .inner').first().append(`- ${data.author}`);
+		  });
+		}
+
+		$('#quoteReloadBtn').click(function () {
+			QuoteGenerator();
+		});
+
+		QuoteGenerator();
 
 })(jQuery);
