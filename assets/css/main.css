@@ -60,6 +60,14 @@ mark {
 	color: inherit;
 }
 
+#one h2 {
+	margin: 0px;
+}
+
+#one h3 {
+	margin: 0px;
+}
+
 input::-moz-focus-inner {
 	border: 0;
 	padding: 0;
