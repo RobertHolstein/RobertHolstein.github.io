@@ -116,10 +116,10 @@
 		
 		// API Quote Generator
 		var QuoteGenerator = () => {
-		$.get( "https://talaikis.com/api/quotes/random/", function( data ) {
+		$.get( "https://favqs.com/api/qotd", function( data ) {
 			$('header .inner').first().empty();
-			$('header .inner').first().append(`<h1><strong>"${data.quote}"</h1></strong>`);
-			$('header .inner').first().append(`- ${data.author}`);
+			$('header .inner').first().append(`<h1><strong>"${data.quote.body}"</h1></strong>`);
+			$('header .inner').first().append(`- ${data.quote.author}`);
 		  });
 		}
 
